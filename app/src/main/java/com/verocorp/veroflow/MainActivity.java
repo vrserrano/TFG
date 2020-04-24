@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
     ImageButton playCancion;
-
+    ImageButton siguienteCancion;
     String music1 = "https://sampleswap.org/samples-ghost/PUBLIC%20DOMAIN%20MUSIC/1939%20American%20Folklife%20Lomax%20Recordings/203[kb]jr-lomax-1939-clapping-song_satisfied.mp3.mp3";
 
     @Override
@@ -58,5 +58,19 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-    }
-}
+        siguienteCancion = findViewById(R.id.siguienteCancion);
+        siguienteCancion.setOnClickListener(new View.OnClickListener() {
+        @Override
+
+        @Override
+        public void onClick(View v) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+                siguienteCancion.setImageResource(R.drawable.);
+            } else {
+                mediaPlayer.start();
+                siguienteCancion.setImageResource(R.drawable.);
+            }
+        }
+
+        });
