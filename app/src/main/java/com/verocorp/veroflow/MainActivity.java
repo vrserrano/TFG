@@ -17,19 +17,27 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
-    ImageButton playCancion;
+    ImageButton playpauseCancion;
     ImageButton siguienteCancion;
-    String song1;
-    String song2;
+    ImageButton anteriorCancion;
+    ImageView  caratula;
 
+    MediaPlayer cancion [] = new MediaPlayer[2];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        playCancion = findViewById(R.id.playCancion);
-        playCancion.setOnClickListener(new View.OnClickListener() {
+        playpauseCancion = findViewById(R.id.playCancion);
+        siguienteCancion = findViewById(R.id.siguienteCancion);
+        anteriorCancion = findViewById(R.id.anteriorCancion);
+        caratula = findViewById(R.id.caratula1);
+
+        cancion [0] = MediaPlayer.create( this, song1);
+        cancion [1] = MediaPlayer.create( this, song2);
+        
+        playpauseCancion.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
@@ -37,10 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 if (mediaPlayer.isPlaying()) {
                     mediaPlayer.pause();
                     playCancion.setImageResource(R.drawable.ic_play_arrow_black_24dp);
-                } else {
-                    mediaPlayer.start();
+                } else if (mediaPlayer.start();){
                     playCancion.setImageResource(R.drawable.ic_pause_black_24dp);
-                }
+                } else if ( )
             }
         });
 
@@ -61,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        siguienteCancion = findViewById(R.id.siguienteCancion);
+
         siguienteCancion.setOnClickListener(new View.OnClickListener() {
 
 
