@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E81123"
-    android:backgroundTint="#FBB244"
+    android:backgroundTint="#057E72"
     tools:context=".MainActivity">
 
     <ImageButton
@@ -17,8 +17,8 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="160dp"
-        android:background="#F4980F"
-        android:tint="#18287C"
+        android:background="#5F605B"
+        android:tint="#FCFCFD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/playCancion"
@@ -33,9 +33,9 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="160dp"
-        android:background="#F4980F"
+        android:background="#5F605B"
         android:contentDescription="TODO"
-        android:tint="#18287C"
+        android:tint="#FCFCFD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/playCancion"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,11 +50,11 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="160dp"
-        android:background="#F4980F"
-        android:backgroundTint="#F4980F"
+        android:background="#5F605B"
+        android:backgroundTint="#5F605B"
         android:contentDescription="play"
         android:onClick="@android:string/VideoView_error_text_invalid_progressive_playback"
-        android:tint="#3F51B5"
+        android:tint="#FCFCFD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/siguienteCancion"
         app:layout_constraintHorizontal_bias="0.866"
@@ -90,5 +90,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/astronomia" />
+
+    <TextView
+        android:id="@+id/grupo"
+        android:layout_width="111dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/caratula1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

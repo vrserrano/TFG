@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton siguienteCancion;
     ImageButton anteriorCancion;
     ImageView caratula;
+    TextView grupoMusica;
     int posicion = 0;
 
     MediaPlayer cancion[] = new MediaPlayer[2];
@@ -30,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
         siguienteCancion = findViewById(R.id.siguienteCancion);
         anteriorCancion = findViewById(R.id.anteriorCancion);
         caratula = findViewById(R.id.caratula1);
+        grupoMusica = findViewById(R.id.grupo);
 
-        cancion[0] = MediaPlayer.create(this, R.raw.song1);
+                cancion[0] = MediaPlayer.create(this, R.raw.song1);
         cancion[1] = MediaPlayer.create(this, R.raw.song2);
 
         //Método para el botón playPause
@@ -62,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
                         if (posicion == 0) {
                             caratula.setImageResource(astronomia);
+                            grupoMusica.setText("Grupo: Vicetone");
                         } else if (posicion == 1) {
                             caratula.setImageResource(R.drawable.picture);
+                            grupoMusica.setText("Grupo: Picture this");
                         }
                     } else {
                         posicion++;
@@ -71,8 +76,10 @@ public class MainActivity extends AppCompatActivity {
 
                         if (posicion == 0) {
                             caratula.setImageResource(astronomia);
+                            grupoMusica.setText("Grupo: Vicetone");
                         } else if (posicion == 1) {
                             caratula.setImageResource(R.drawable.picture);
+                            grupoMusica.setText("Grupo: Picture this");
                         }
                     }
                 } else {
@@ -89,11 +96,16 @@ public class MainActivity extends AppCompatActivity {
                     if (cancion[posicion].isPlaying()) {
                         cancion[posicion].pause();
                         cancion[posicion].seekTo(0);
-
-                        playPauseCancion = findViewById(R.id.playCancion);
-                        siguienteCancion = findViewById(R.id.siguienteCancion);
-                        anteriorCancion = findViewById(R.id.anteriorCancion);
                         posicion--;
+
+                        if (posicion == 0) {
+                            caratula.setImageResource(astronomia);
+                            grupoMusica.setText("Grupo: Vicetone");
+                        } else if (posicion == 1) {
+                            caratula.setImageResource(R.drawable.picture);
+                            grupoMusica.setText("Grupo: Picture this");
+                        }
+
                         cancion[posicion].start();
                     } else {
                         posicion--;
@@ -101,8 +113,10 @@ public class MainActivity extends AppCompatActivity {
 
                         if (posicion == 0) {
                             caratula.setImageResource(astronomia);
+                            grupoMusica.setText("Grupo: Vicetone");
                         } else if (posicion == 1) {
                             caratula.setImageResource(R.drawable.picture);
+                            grupoMusica.setText("Grupo: Picture this");
                         }
                     }
                 } else {
