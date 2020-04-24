@@ -17,10 +17,11 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
-    ImageButton playpauseCancion;
+    ImageButton playPauseCancion;
     ImageButton siguienteCancion;
     ImageButton anteriorCancion;
     ImageView  caratula;
+    int posicion = 0;
 
     MediaPlayer cancion [] = new MediaPlayer[2];
 
@@ -29,79 +30,49 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        playpauseCancion = findViewById(R.id.playCancion);
+        playPauseCancion = findViewById(R.id.playCancion);
         siguienteCancion = findViewById(R.id.siguienteCancion);
         anteriorCancion = findViewById(R.id.anteriorCancion);
         caratula = findViewById(R.id.caratula1);
 
-        cancion [0] = MediaPlayer.create( this, song1);
-        cancion [1] = MediaPlayer.create( this, song2);
-        
-        playpauseCancion.setOnClickListener(new View.OnClickListener() {
+        cancion [0] = MediaPlayer.create( this, R.raw.song1);
+        cancion [1] = MediaPlayer.create( this, R.raw.song2);
 
-
-            @Override
-            public void onClick(View v) {
-                if (mediaPlayer.isPlaying()) {
-                    mediaPlayer.pause();
-                    playCancion.setImageResource(R.drawable.ic_play_arrow_black_24dp);
-                } else if (mediaPlayer.start();){
-                    playCancion.setImageResource(R.drawable.ic_pause_black_24dp);
-                } else if ( )
-            }
-        });
-
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        try {
-
-            mediaPlayer.setDataSource(song1);
-            mediaPlayer.prepareAsync();
-
-            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-                    Toast.makeText(MainActivity.this, "Media Buffering Complete", Toast.LENGTH_SHORT).show();
-                }
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        siguienteCancion.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View v) {
-                if (mediaPlayer.isPlaying()) {
-                    mediaPlayer.pause();
-                    siguienteCancion.setImageResource(R.drawable.ic_skip_next_black_24dp);
-
+        //Método para el botón playPause
+        public void onClick (View view) {
+                if (cancion[posicion].isPlaying()){
+                     cancion[posicion].pause();
+                     playPauseCancion.setBackgroundResource(R.drawable.ic_play_arrow_black_24dp);
+                    Toast.makeText(MainActivity.this, "Pause", Toast.LENGTH_SHORT).show();
                 } else {
-                    mediaPlayer.start();
-                    siguienteCancion.setImageResource(R.drawable.pajaros);
+                    cancion[posicion].start();
+                    playPauseCancion.setImageResource(R.drawable.ic_pause_black_24dp);
+                    Toast.makeText(MainActivity.this, "Play", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        try {
+            public void siguienteCancion (View view) {
+                if (posicion < cancion.length -1) {
 
-            mediaPlayer.setDataSource(song2);
-            mediaPlayer.prepareAsync();
+                    if (cancion[posicion].isPlaying()) {
+                        cancion[posicion].pause();
+                        posicion++;
+                        cancion[posicion].start();
 
-            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-                    Toast.makeText(MainActivity.this, "Media Buffering Complete", Toast.LENGTH_SHORT).show();
+                        if (posicion == 0 ) {
+                            caratula.setImageResource(R.drawable.lola1);
+                        } else if (posicion ==1){
+                            caratula.setImageResource(R.drawable.pajaros);
+                        }
+                    } else {
+                        posicion++;
+
+                        if (posicion == 0) {
+                            caratula.setImageResource(R.drawable.lola1);
+                        } else if (posicion ==1){
+                            caratula.setImageResource(R.drawable.pajaros);
+                        }
+                    }
+                } else {
+                    Toast.makeText(MainActivity.this, "Fin lista canciones", Toast.LENGTH_SHORT).show();
                 }
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-}
-
+        };
