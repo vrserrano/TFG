@@ -2,17 +2,86 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/barraProgreso"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E81123"
+    android:backgroundTint="#FBB244"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="14dp"
-        android:layout_height="9dp"
-        android:text="Holi"
+    <ImageButton
+        android:id="@+id/siguienteCancion"
+        android:layout_width="42dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="160dp"
+        android:background="#F4980F"
+        android:tint="#18287C"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/playCancion"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:srcCompat="@android:drawable/ic_media_next" />
+
+    <ImageButton
+        android:id="@+id/anteriorCancion"
+        android:layout_width="49dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="160dp"
+        android:background="#F4980F"
+        android:contentDescription="TODO"
+        android:tint="#18287C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/playCancion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:srcCompat="@android:drawable/ic_media_previous" />
+
+    <ImageButton
+        android:id="@+id/playCancion"
+        android:layout_width="41dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="160dp"
+        android:background="#F4980F"
+        android:contentDescription="play"
+        android:onClick="@android:string/VideoView_error_text_invalid_progressive_playback"
+        android:tint="#18287C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/siguienteCancion"
+        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintStart_toEndOf="@+id/anteriorCancion"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="258dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="77dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caratula1" />
+
+    <ImageView
+        android:id="@+id/caratula1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="189dp"
+        android:layout_marginEnd="114dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lola1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
