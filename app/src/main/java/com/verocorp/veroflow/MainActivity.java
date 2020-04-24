@@ -29,15 +29,15 @@ public class MainActivity extends AppCompatActivity {
         playCancion = findViewById(R.id.playCancion);
         playCancion.setOnClickListener(new View.OnClickListener() {
 
-            @SuppressLint("ResourceType")
+
             @Override
             public void onClick(View v) {
-                if (!mediaPlayer.isPlaying()) {
+                if (mediaPlayer.isPlaying()) {
                     mediaPlayer.pause();
-                    playCancion.setImageResource(R.drawable.play);
+                    playCancion.setImageResource(R.drawable.lola1);
                 } else {
                     mediaPlayer.start();
-                    playCancion.setImageResource(R.drawable.pause);
+                    playCancion.setImageResource(R.drawable.lola1);
                 }
             }
         });
