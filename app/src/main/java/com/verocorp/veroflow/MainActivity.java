@@ -1,18 +1,13 @@
 package com.verocorp.veroflow;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.IOException;
+import androidx.appcompat.app.AppCompatActivity;
 
 import static com.verocorp.veroflow.R.drawable.astronomia;
 
@@ -61,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 if (posicion < cancion.length - 1) {
                     if (cancion[posicion].isPlaying()) {
                         cancion[posicion].pause();
+                        cancion[posicion].seekTo(0);
                         posicion++;
                         cancion[posicion].start();
 
@@ -71,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     } else {
                         posicion++;
+                        cancion[posicion].seekTo(0);
 
                         if (posicion == 0) {
                             caratula.setImageResource(astronomia);
@@ -91,20 +88,16 @@ public class MainActivity extends AppCompatActivity {
 
                     if (cancion[posicion].isPlaying()) {
                         cancion[posicion].pause();
+                        cancion[posicion].seekTo(0);
 
                         playPauseCancion = findViewById(R.id.playCancion);
                         siguienteCancion = findViewById(R.id.siguienteCancion);
                         anteriorCancion = findViewById(R.id.anteriorCancion);
                         posicion--;
-
-                        if (posicion == 0) {
-                            caratula.setImageResource(astronomia);
-                        } else if (posicion == 1) {
-                            caratula.setImageResource(R.drawable.picture);
-                        }
                         cancion[posicion].start();
                     } else {
                         posicion--;
+                        cancion[posicion].seekTo(0);
 
                         if (posicion == 0) {
                             caratula.setImageResource(astronomia);
