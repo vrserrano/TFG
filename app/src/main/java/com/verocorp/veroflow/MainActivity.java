@@ -19,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     ImageButton playCancion;
     ImageButton siguienteCancion;
-    String music1 = "https://sampleswap.org/samples-ghost/PUBLIC%20DOMAIN%20MUSIC/1939%20American%20Folklife%20Lomax%20Recordings/203[kb]jr-lomax-1939-clapping-song_satisfied.mp3.mp3";
+    String song1;
+    String song2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (mediaPlayer.isPlaying()) {
                     mediaPlayer.pause();
-                    playCancion.setImageResource(R.drawable.lola1);
+                    playCancion.setImageResource(R.drawable.ic_play_arrow_black_24dp);
                 } else {
                     mediaPlayer.start();
-                    playCancion.setImageResource(R.drawable.lola1);
+                    playCancion.setImageResource(R.drawable.ic_pause_black_24dp);
                 }
             }
         });
@@ -45,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         try {
-            mediaPlayer.setDataSource(music1);
+
+            mediaPlayer.setDataSource(song1);
             mediaPlayer.prepareAsync();
 
             mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -60,17 +63,38 @@ public class MainActivity extends AppCompatActivity {
 
         siguienteCancion = findViewById(R.id.siguienteCancion);
         siguienteCancion.setOnClickListener(new View.OnClickListener() {
-        @Override
 
-        @Override
-        public void onClick(View v) {
-            if (mediaPlayer.isPlaying()) {
-                mediaPlayer.stop();
-                siguienteCancion.setImageResource(R.drawable.);
-            } else {
-                mediaPlayer.start();
-                siguienteCancion.setImageResource(R.drawable.);
+
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.pause();
+                    siguienteCancion.setImageResource(R.drawable.ic_skip_next_black_24dp);
+
+                } else {
+                    mediaPlayer.start();
+                    siguienteCancion.setImageResource(R.drawable.pajaros);
+                }
             }
+        });
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        try {
+
+            mediaPlayer.setDataSource(song2);
+            mediaPlayer.prepareAsync();
+
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    Toast.makeText(MainActivity.this, "Media Buffering Complete", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        });
+
+    }
+}
+
