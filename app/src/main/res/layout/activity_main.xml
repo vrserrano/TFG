@@ -14,7 +14,7 @@
         android:layout_width="42dp"
         android:layout_height="33dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="160dp"
         android:background="#F4980F"
@@ -22,7 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/playCancion"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/barraProgreso"
         app:srcCompat="@android:drawable/ic_media_next" />
 
     <ImageButton
@@ -30,7 +30,7 @@
         android:layout_width="49dp"
         android:layout_height="36dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="160dp"
         android:background="#F4980F"
@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/playCancion"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/barraProgreso"
         app:srcCompat="@android:drawable/ic_media_previous" />
 
     <ImageButton
@@ -47,7 +47,7 @@
         android:layout_width="41dp"
         android:layout_height="37dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="160dp"
         android:background="#F4980F"
@@ -59,30 +59,36 @@
         app:layout_constraintEnd_toStartOf="@+id/siguienteCancion"
         app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toEndOf="@+id/anteriorCancion"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/barraProgreso"
         app:srcCompat="@android:drawable/ic_media_play" />
 
     <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="258dp"
-        android:layout_height="75dp"
+        android:id="@+id/barraProgreso"
+        android:layout_width="296dp"
+        android:layout_height="79dp"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginEnd="77dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/playCancion"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/caratula1" />
 
     <ImageView
         android:id="@+id/caratula1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="189dp"
-        android:layout_marginEnd="114dp"
+        android:layout_width="275dp"
+        android:layout_height="264dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/barraProgreso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/lola1" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/astronomia" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
