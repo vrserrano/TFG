@@ -2,9 +2,11 @@ package com.verocorp.veroflow;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
     TextView grupoMusica;
     int posicion = 0;
 
+    SeekBar seekBar3;
+    Handler handler;
+    Runnable runnable;
+
+
     MediaPlayer cancion[] = new MediaPlayer[2];
 
     @Override
@@ -34,8 +41,18 @@ public class MainActivity extends AppCompatActivity {
         caratula = findViewById(R.id.caratula1);
         grupoMusica = findViewById(R.id.grupo);
 
-                cancion[0] = MediaPlayer.create(this, R.raw.song1);
+        handler = new Handler();
+        seekBar3 = (SeekBar) findViewById(R.id.seekBar3);
+
+        cancion[0] = MediaPlayer.create(this, R.raw.song1);
         cancion[1] = MediaPlayer.create(this, R.raw.song2);
+
+        seekBar3.setMax(MediaPlayer.getDuration());
+
+        seekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                                            
+
+        };
 
         //Método para el botón playPause
         playPauseCancion.setOnClickListener(new View.OnClickListener() {
