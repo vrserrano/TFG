@@ -44,13 +44,29 @@ public class MainActivity extends AppCompatActivity {
         handler = new Handler();
         seekBar3 = (SeekBar) findViewById(R.id.seekBar3);
 
+
+        seekBar3.setOnSeekBarChangeListener(new seekBar3.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged( SeekBar seekBar3, int progress, boolean fromUser) {
+
+            }
+             @Override
+             public void onStartTrackingTouch( SeekBar seekBar3 ) {
+
+             }
+            @Override
+            public void onStopTrackingTouch( SeekBar seekBar3) {
+
+            }
+
+
+
         cancion[0] = MediaPlayer.create(this, R.raw.song1);
         cancion[1] = MediaPlayer.create(this, R.raw.song2);
 
         seekBar3.setMax(MediaPlayer.getDuration());
 
-        seekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                                            
+
 
         };
 
